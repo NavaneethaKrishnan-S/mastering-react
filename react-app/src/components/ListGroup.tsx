@@ -1,10 +1,11 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
 
 function ListGroup() {
   let items = ["New York", "San Francisco", "London", "Paris", "Tokyo"];
 
-  // This function is called "Event handler"
-  const handleClick = (event: MouseEvent) => console.log(event);
+  // useState is used to manage state in functional components, enabling dynamic data updates in the UI.
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
   return (
     <>
       <h1>List</h1>
@@ -12,7 +13,17 @@ function ListGroup() {
       {items.length == 0 && <p>No item found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
-          <li className="list-group-item" key={item} onClick={handleClick}>
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={item}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
+          >
             {item}
           </li>
         ))}
