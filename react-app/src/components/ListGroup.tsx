@@ -1,14 +1,17 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let items = ["New York", "San Francisco", "London", "Paris", "Tokyo"];
+interface Props {
+  items: string[];
+  heading: string;
+}
 
+function ListGroup({ items, heading }: Props) {
   // useState is used to manage state in functional components, enabling dynamic data updates in the UI.
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {/* If the items array is empty, React conditionally renders the text “No item found”. */}
       {items.length == 0 && <p>No item found</p>}
       <ul className="list-group">
