@@ -1,14 +1,12 @@
-import ListGroup from "./components/ListGroup";
 import "./App.css";
-import { BsFillCalendarFill } from "react-icons/bs";
-import Button from "./components/Button/Button";
+import LikeButton from "./components/Button/LikeButton";
 
 function App() {
   let items = ["New York", "Los Angeles", "San Francisco"];
 
   return (
     <div>
-      <Button onClick={() => {}}>My Button </Button>
+      <LikeButton onClick={() => console.log("clicked")} />
     </div>
   );
 }
