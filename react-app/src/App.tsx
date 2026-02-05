@@ -3,39 +3,27 @@ import "./App.css";
 
 function App() {
   /*
-    1. React updates state asynchronously.
-    2. State is stored outside of components.
-    3. Use hooks at the top level of your component.
+  
+  Best Practices:
+
+  1. Avoid redundant state variables.
+  2. Group related variables inside an object.
+  3. Avoid deeply nested structures.
+
   */
-  const [isVisible, setVisibility] = useState(false);
-  const [counter, setCounter] = useState(0);
-  let count = 0;
 
-  // A component re-renders only when its state value changes.
-  const handleClick = () => {
-    setVisibility(true);
-    count++;
-    console.log(isVisible);
-    console.log(count);
-  };
+  const [person, setPerson] = useState({
+    firstName: "Naveen",
+    lastName: "krishnan",
+  });
 
-  // Here, the counter state changes every time, so the component re-renders and the count variable is reset to 0.
-  const handleCounter = () => {
-    setCounter(counter + 1);
-    count++;
-    console.log(counter);
-    console.log(count);
-  };
-
-  const getStateValue = () => {
-    console.log(isVisible);
-  };
+  const [isLoading, setLoading] = useState(false);
 
   return (
     <div>
-      <button onClick={handleClick}>Show</button>
-      <button onClick={getStateValue}>getStateValue</button>
-      <button onClick={handleCounter}>Count</button>
+      <h3>Person Details</h3>
+      <p>First Name: {person.firstName}</p>
+      <p>Last Name: {person.lastName}</p>
     </div>
   );
 }
